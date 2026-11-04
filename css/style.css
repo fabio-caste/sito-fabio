@@ -1,0 +1,683 @@
+/* Le dimensioni includono padding e bordo */
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* COLORI E CARATTERI: quale colore usa ogni elemento */
+:root {
+  /* Sfondi e linee */
+  --colore-sfondo: #0b0f14;
+  --colore-sfondo-alt: #121821;
+  --colore-bordo: #1f2933;
+  --colore-bordo-header: rgba(0, 237, 246, 0.25);
+
+  /* Testi */
+  --colore-testo: #c9d1d9;
+  --colore-secondario: #8b949e;
+
+  /* Header */
+  --colore-logo: #ffffff;
+  --colore-menu: #c9d1d9;
+
+  /* Sezione d'apertura */
+  --colore-nome: #00edf6;
+  --colore-ruolo: #ffffff;
+  --colore-pulsante: #00edf6;
+  --colore-testo-pulsante: #0b0f14;
+  --colore-pulsante-hover: #ffffff;
+
+  /* Titoli e link */
+  --colore-titoli-sezione: #00edf6;
+  --colore-sottotitoli: #ffffff;
+  --colore-link: #00edf6;
+
+  /* Caratteri */
+  --font-testo: "Inter", sans-serif;
+  --font-titoli: "JetBrains Mono", monospace;
+
+  /* Modulo */
+  --colore-campo-sfondo: #121821;
+  --colore-campo-bordo: #1f2933;
+  --colore-campo-attivo: #00edf6;
+}
+
+
+/* Base della pagina */
+body {
+  margin: 0;
+  font-family: var(--font-testo);
+  color: var(--colore-testo);
+  background-color: var(--colore-sfondo);
+  line-height: 1.6;
+}
+
+/* Scorrimento morbido verso le sezioni */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Titoli e menu: carattere da terminale */
+h1,
+h2,
+h3,
+nav a {
+  font-family: var(--font-titoli);
+  line-height: 1.2;
+}
+
+/* Colori dei titoli */
+h1 {
+  color: var(--colore-nome);
+}
+
+h2 {
+  color: var(--colore-titoli-sezione);
+}
+
+h3 {
+  color: var(--colore-sottotitoli);
+}
+
+/* Link */
+a {
+  color: var(--colore-link);
+}
+
+/* Intestazione: fissa in alto durante lo scorrimento */
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px 40px;
+  background-color: var(--colore-sfondo);
+  border-bottom: 1px solid var(--colore-bordo-header);
+}
+
+/* Gruppo foto + nome */
+.identita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Foto profilo rotonda */
+header img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s;
+}
+
+/* Nome nell'header: funziona come un logo */
+.logo {
+  font-family: var(--font-titoli);
+  color: var(--colore-logo);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+/* Foto e nome si accendono insieme al passaggio del mouse */
+.identita:hover img {
+  box-shadow: 0 0 0 2px var(--colore-link);
+}
+
+.identita:hover .logo {
+  color: var(--colore-link);
+}
+
+/* Pulsante del menu: nascosto sugli schermi larghi */
+.menu-pulsante {
+  display: none;
+}
+
+/* Menu orizzontale */
+nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Voci del menu */
+nav a {
+  color: var(--colore-menu);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+/* Voci del menu al passaggio del mouse */
+nav a:hover {
+  color: var(--colore-link);
+}
+
+/* Contenuto centrale */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+
+/* Sezioni */
+section {
+  padding: 64px 0;
+  border-bottom: 3px solid var(--colore-bordo);
+  scroll-margin-top: 80px;
+}
+
+/* Titoli di sezione e sottotitoli */
+h2 {
+  font-size: 28px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* Testo di contorno: periodi delle esperienze */
+.periodo {
+  color: var(--colore-secondario);
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.hero {
+  padding: 100px 0;
+}
+
+/* Sezione d'apertura */
+.hero h1 {
+  font-size: 48px;
+  margin: 0 0 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-breve h1 {
+  font-size: 32px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.ruolo {
+  font-family: var(--font-titoli);
+  color: var(--colore-ruolo);
+  font-size: 22px;
+  margin: 0 0 24px;
+}
+
+.intro {
+  color: var(--colore-secondario);
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* Apertura più sobria per le pagine di servizio (privacy) */
+.hero-breve {
+  padding: 48px 0;
+}
+
+/* Modulo di contatto */
+form {
+  max-width: 500px;
+}
+
+/* Campo trappola contro lo spam: invisibile alle persone */
+.nascosto {
+  display: none;
+}
+
+.campo {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--colore-campo-sfondo);
+  border: 1px solid var(--colore-campo-bordo);
+  color: var(--colore-testo);
+  border-radius: 6px;
+  font: inherit;
+}
+
+/* Campo selezionato mentre si scrive */
+.campo:focus {
+  border-color: var(--colore-campo-attivo);
+  outline: none;
+}
+
+
+/* Pulsante "invito all'azione" */
+.pulsante {
+  display: inline-block;
+  background-color: var(--colore-pulsante);
+  color: var(--colore-testo-pulsante);
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: var(--font-titoli);
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Pulsante al passaggio del mouse */
+.pulsante:hover {
+  background-color: var(--colore-pulsante-hover);
+}
+
+/* Piè di pagina */
+footer {
+  text-align: center;
+  color: var(--colore-secondario);
+  font-size: 14px;
+  padding: 32px;
+}
+
+/* Icone dei social nel piè di pagina */
+.link-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.link-footer img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.link-footer a:hover img {
+  opacity: 1;
+}
+
+/* Pulsante "torna su": fisso in basso a destra, nascosto all'inizio */
+.torna-su {
+  position: fixed;
+  right: 24px;
+  bottom: 88px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colore-pulsante);
+  color: var(--colore-testo-pulsante);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Quando JavaScript aggiunge la classe "visibile", il pulsante compare */
+.torna-su.visibile {
+  opacity: 1;
+  visibility: visible;
+}
+
+.torna-su:hover {
+  background-color: var(--colore-pulsante-hover);
+}
+
+/* Citazione in Chi sono */
+blockquote {
+  margin: 32px 0 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--colore-link);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--colore-sottotitoli);
+}
+
+/* Griglia dei progetti: due colonne, una sul cellulare */
+.griglia-progetti {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Scheda di un progetto */
+.progetto {
+  background-color: var(--colore-sfondo-alt);
+  border: 1px solid var(--colore-bordo);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Il link di ogni scheda sta sempre in fondo */
+.progetto>a:last-child {
+  margin-top: auto;
+}
+
+/* Immagini e video di anteprima: tutte con la stessa forma */
+.progetto img,
+.progetto video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background-color: var(--colore-sfondo);
+  border-radius: 6px;
+  display: block;
+}
+
+/* Contenitore immagine + didascalia */
+.progetto figure {
+  margin: 0;
+}
+
+/* Didascalia: credito del fotografo */
+figcaption {
+  color: var(--colore-secondario);
+  margin-top: 6px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Immagine dell'apertura: larga quanto il contenuto */
+.apertura-immagine {
+  margin: 48px 0 0;
+}
+
+.apertura-immagine img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Ritratto in Chi sono */
+.ritratto {
+  margin: 0;
+}
+
+.ritratto img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Avvertenza sul progetto didattico */
+.avvertenza {
+  color: var(--colore-secondario);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Recapiti: email e LinkedIn affiancati */
+.recapiti {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Esperienze: linea del tempo */
+.esperienza {
+  margin-bottom: 32px;
+  padding-left: 20px;
+  border-left: 3px solid var(--colore-bordo);
+  transition: border-color 0.2s;
+}
+
+.esperienza:last-child {
+  margin-bottom: 0;
+}
+
+.esperienza h3 {
+  margin-top: 0;
+}
+
+/* La linea si accende al passaggio del mouse */
+.esperienza:hover {
+  border-color: var(--colore-link);
+}
+
+/* Formazione: voci più distanziate */
+#formazione li {
+  margin-bottom: 12px;
+}
+
+/* Formazione: senza pallini, allineata al testo */
+#formazione ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Schermi larghi: sezioni su due colonne, titolo a sinistra e contenuto a destra */
+@media (min-width: 701px) {
+
+  /* Ogni sezione, tranne l'apertura, diventa una griglia a due colonne */
+  section:not(.hero) {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    column-gap: 48px;
+  }
+
+  /* Tutto il contenuto va nella colonna di destra */
+  section:not(.hero)>* {
+    grid-column: 2;
+  }
+
+  /* Il titolo va nella colonna di sinistra, accanto a tutto il contenuto */
+  section:not(.hero)>h2 {
+    grid-column: 1;
+    grid-row: 1 / span 20;
+  }
+
+  /* Il primo elemento accanto al titolo parte alla stessa altezza */
+  section:not(.hero)>h2+* {
+    margin-top: 0;
+  }
+
+  /* I pulsanti restano larghi quanto il loro testo */
+  section:not(.hero)>.pulsante {
+    justify-self: start;
+  }
+
+  /* Ritratto nella colonna di sinistra, sotto il titolo */
+  #chi-sono>.ritratto {
+    grid-column: 1;
+    grid-row: 1 / span 20;
+    margin-top: 64px;
+  }
+
+  /* Il primo paragrafo parte alla stessa altezza del titolo */
+  #chi-sono>p:first-of-type {
+    margin-top: 0;
+  }
+
+  /* Apertura: testo a sinistra, immagine a destra */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    column-gap: 48px;
+    align-items: center;
+  }
+
+  .hero>* {
+    grid-column: 1;
+  }
+
+  .hero>.apertura-immagine {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    margin: 0;
+  }
+
+  .hero>.pulsante {
+    justify-self: start;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
+
+/* Schermi piccoli: cellulari e tablet stretti */
+@media (max-width:700px) {
+  header {
+    padding: 16px 20px;
+    position: relative;
+  }
+
+  /* Pulsante del menu: visibile sul cellulare */
+  .menu-pulsante {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 1px solid var(--colore-bordo-header);
+    border-radius: 6px;
+    color: var(--colore-link);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Menu: nascosto finché non si preme il pulsante */
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    z-index: 10;
+    padding: 8px 24px;
+    background-color: var(--colore-sfondo-alt);
+    border: 1px solid var(--colore-bordo-header);
+    border-radius: 8px;
+  }
+
+  nav.aperto {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 8px 0;
+  }
+
+  main {
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  .hero {
+    padding: 64px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .ruolo {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* Apertura centrata */
+  .hero {
+    text-align: center;
+  }
+
+  /* Pulsanti a tutta larghezza */
+  .pulsante {
+    display: block;
+    text-align: center;
+  }
+
+  /* Elenchi: rientro ridotto sul cellulare */
+  main ul {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .griglia-progetti {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ritratto centrato sul cellulare */
+  .ritratto {
+    max-width: 280px;
+    margin: 0 auto 24px;
+  }
+
+  /* Spazio tra la didascalia e il pulsante */
+  .hero>.pulsante {
+    margin-top: 24px;
+  }
+
+}
