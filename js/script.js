@@ -46,3 +46,11 @@ document.addEventListener("click", function (evento) {
     pulsanteMenu.setAttribute("aria-expanded", false);
   }
 });
+
+// Con il tasto Esc il menu si chiude
+document.addEventListener("keydown", function (evento) {
+  if (evento.key === "Escape") {
+    menu.classList.remove("aperto");
+    pulsanteMenu.setAttribute("aria-expanded", false);
+  }
+});
