@@ -54,3 +54,36 @@ document.addEventListener("keydown", function (evento) {
     pulsanteMenu.setAttribute("aria-expanded", false);
   }
 });
+
+// ===== FILTRI DEI PROGETTI =====
+
+// 1. TROVO GLI ELEMENTI
+const pulsantiFiltro = document.querySelectorAll(".filtro");
+const sezioniProgetti = document.querySelectorAll(".sezione-progetti");
+
+// 2. LA RICETTA
+function filtraProgetti(categoria) {
+  sezioniProgetti.forEach(function (sezione) {
+    if (categoria === "tutti" || categoria === sezione.id) {
+      sezione.classList.remove("nascosta");
+    } else {
+      sezione.classList.add("nascosta");
+    }
+  });
+}
+
+// 3. GLI ASCOLTATORI
+pulsantiFiltro.forEach(function (pulsanteFiltro) {
+  pulsanteFiltro.addEventListener("click", function () {
+    filtraProgetti(pulsanteFiltro.dataset.categoria);
+
+    // togli la classe "attivo" da tutti i pulsanti
+    pulsantiFiltro.forEach(function (unPulsante) {
+      unPulsante.classList.remove("attivo");
+    });
+
+    // togli la classe "attivo" da tutti i pulsanti
+    pulsanteFiltro.classList.add("attivo");
+    });
+
+  });

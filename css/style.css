@@ -679,5 +679,42 @@ figcaption {
   .hero>.pulsante {
     margin-top: 24px;
   }
+}
 
+ /* ===== FILTRI DEI PROGETTI ===== */
+.filtri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.filtro {
+  font-family: var(--font-titoli);
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid var(--colore-bordo);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--colore-testo);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+/* al passaggio del mouse: bordo e testo ciano */
+.filtro:hover {
+  border-color: var(--colore-pulsante);
+  color: var(--colore-pulsante);
+}
+
+/* il filtro acceso: pieno, come i pulsanti del sito */
+.filtro.attivo {
+  background: var(--colore-pulsante);
+  border-color: var(--colore-pulsante);
+  color: var(--colore-testo-pulsante);
+}
+
+/* le sezioni nascoste dal filtro */
+.sezione-progetti.nascosta {
+  display: none;
 }
