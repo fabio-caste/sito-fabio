@@ -49,9 +49,18 @@
         Social Media e per le mie collaborazioni.</p>
     </section>
 
-    <section id="strategia">
+    <div class="filtri" role="group" aria-label="Filtra i progetti per categoria">
+      <button class="filtro attivo" data-categoria="tutti">Tutti</button>
+      <button class="filtro" data-categoria="strategia">Strategia</button>
+      <button class="filtro" data-categoria="contenuti">Contenuti</button>
+      <button class="filtro" data-categoria="advertising">Advertising</button>
+      <button class="filtro" data-categoria="collaborazioni">Collaborazioni</button>
+    </div>
+
+    <section id="strategia" class="sezione-progetti">
       <h2>Strategia</h2>
       <div class="griglia-progetti">
+
         <article class="progetto">
           <img src="img/illy-copertina.webp"
             alt="Copertina del progetto: una tazzina di caffè con la scritta nella schiuma" loading="lazy">
@@ -83,8 +92,10 @@
             loading="lazy">
           <h3>Una pagina LinkedIn aziendale per la mobilità sostenibile</h3>
           <p class="periodo">Progetto del Master in Social Media · Start2Impact · 2022</p>
-          <p>Ottimizzazione e strategia di crescita della pagina LinkedIn di MOOVE, un’azienda di mobilità sostenibile. Ho
-            impostato il piano editoriale con la regola del 5-3-2, il tono di voce per un pubblico tra i 18 e i 40 anni e
+          <p>Ottimizzazione e strategia di crescita della pagina LinkedIn di MOOVE, un’azienda di mobilità sostenibile.
+            Ho
+            impostato il piano editoriale con la regola del 5-3-2, il tono di voce per un pubblico tra i 18 e i 40 anni
+            e
             una campagna LinkedIn Ads da 1.000 euro per far crescere l’interesse di possibili partner.</p>
           <p class="avvertenza">Progetto didattico su un’azienda ipotetica.</p>
           <a href="documenti/linkedin-aziende.pdf" target="_blank">Scopri e visiona il progetto (PDF)</a>
@@ -92,7 +103,7 @@
       </div>
     </section>
 
-    <section id="contenuti">
+    <section id="contenuti" class="sezione-progetti">
       <h2>Contenuti</h2>
       <div class="griglia-progetti">
         <article class="progetto">
@@ -152,7 +163,7 @@
       </div>
     </section>
 
-    <section id="advertising">
+    <section id="advertising" class="sezione-progetti">
       <h2>Advertising</h2>
       <div class="griglia-progetti">
         <article class="progetto">
@@ -161,9 +172,12 @@
             loading="lazy">
           <h3>Campagne Meta Ads per un'agenzia di viaggi sostenibili</h3>
           <p class="periodo">Progetto del Master in Social Media · Start2Impact · 2024</p>
-          <p>Strategia pubblicitaria su Facebook e Instagram per Orizon, un’agenzia di viaggi sostenibili. Ho costruito
-            l’identità del brand, analizzato mercato, pubblico e concorrenti, fissato un obiettivo di più 25% di vendite
-            in tre mesi e organizzato le campagne secondo il funnel See-Think-Do-Care, puntando a un pubblico tra i 18 e
+          <p>Strategia pubblicitaria su Facebook e Instagram per Orizon, un’agenzia di viaggi sostenibili. Ho
+            costruito
+            l’identità del brand, analizzato mercato, pubblico e concorrenti, fissato un obiettivo di più 25% di
+            vendite
+            in tre mesi e organizzato le campagne secondo il funnel See-Think-Do-Care, puntando a un pubblico tra i 18
+            e
             i 35 anni.</p>
           <p class="avvertenza">Progetto didattico su un brand ipotetico.</p>
           <a href="documenti/ads-advanced.pdf" target="_blank">Scopri e visiona il progetto (PDF)</a>
@@ -171,7 +185,7 @@
       </div>
     </section>
 
-    <section id="collaborazioni">
+    <section id="collaborazioni" class="sezione-progetti">
       <h2>Collaborazioni</h2>
       <div class="griglia-progetti">
         <article class="progetto">
@@ -210,7 +224,7 @@
   </footer>
   <a href="#" class="torna-su" aria-label="Torna all'inizio della pagina">↑</a>
   <!-- Cloudflare Web Analytics -->
-  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"token": "edd7ebfc3e1440f9ac2646918c4e7100"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
